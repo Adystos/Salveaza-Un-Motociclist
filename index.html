@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siguranța Moto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="theme-switch">
+    <label for="themeToggle">Schimbă tema</label>
+    <label class="switch">
+        <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
+        <span class="slider"></span>
+    </label>
+</div>
+
+<header>
+    <h1>Ce trebuie să faci dacă vezi un motociclist accidentat</h1>
+</header>
+
+<section>
+    <h2>Informații esențiale:</h2>
+    <ul>
+        <li><strong>NU scoate casca motociclistului!</strong></li>
+        <li><strong>NU îl muta, decât dacă este pericol imediat!</strong></li>
+        <li>Sună imediat la <strong>112</strong> și oferă detalii clare.</li>
+        <li>Asigură zona pentru a preveni alte accidente.</li>
+    </ul>
+
+    <h2>Imagini explicative:</h2>
+    <img src="imagine1.png" alt="Motociclist căzut">
+    <img src="imagine2.png" alt="Prim ajutor motociclist">
+</section>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle('dark');
+}
+</script>
+
+</body>
+</html>
