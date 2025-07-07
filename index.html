@@ -190,11 +190,19 @@ color: #fff;
 </div>
 </section>
 <footer>
-<div id="google_translate_element"></div>
+<div id="google_translate_element" style="display:none;"></div>
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'ro', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'ro', includedLanguages: 'en,ro', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+
+function translateTo(lang) {
+  const select = document.querySelector("select.goog-te-combo");
+  if (select) {
+    select.value = lang;
+    select.dispatchEvent(new Event('change'));
+  }
 }
 </script>
 
