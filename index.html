@@ -1,5 +1,8 @@
+# Refac corect salvarea fisierului final, fara a folosi textwrap
 
-<!DOCTYPE html>
+html_path = "/mnt/data/Site_Moto_Final_Complet.html"
+
+html_content = """<!DOCTYPE html>
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
@@ -46,35 +49,13 @@ max-width: 800px;
 border-radius: 12px;
 box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 transition: background 0.3s;
+position: relative;
 }
 body.dark section {
 background: var(--section-bg-dark);
 }
-h2 {
-color: var(--accent-color);
-margin-top: 0;
-}
-ul {
-padding-left: 20px;
-}
-.details-btn {
-background: linear-gradient(90deg, #d11a1a, #ff5e5e);
-color: #fff;
-padding: 12px 24px;
-border: none;
-border-radius: 6px;
-cursor: pointer;
-margin-top: 20px;
-font-size: 16px;
-transition: background 0.3s, transform 0.2s;
-}
-.details-btn:hover {
-background: #b31414;
-transform: scale(1.05);
-}
 .hidden {
 display: none;
-margin-top: 20px;
 }
 .theme-switch {
 position: absolute;
@@ -138,6 +119,25 @@ background-color: var(--accent-color);
 input:checked + .slider:before {
 transform: translateX(26px);
 }
+.details-btn {
+background: linear-gradient(90deg, #d11a1a, #ff5e5e);
+color: #fff;
+padding: 12px 24px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+margin-top: 20px;
+font-size: 16px;
+transition: background 0.3s, transform 0.2s;
+display: block;
+}
+.details-btn:hover {
+background: #b31414;
+transform: scale(1.05);
+}
+h2 {
+color: var(--accent-color);
+}
 footer {
 text-align: center;
 padding: 20px;
@@ -153,21 +153,13 @@ margin: 0 10px;
 background-color: #777777;
 color: #fff;
 }
-@media (max-width: 600px) {
-.theme-switch {
-top: 10px;
-right: 10px;
-transform: scale(0.9);
-}
-header h1 {
-font-size: 20px;
-padding: 0 10px;
-}
-}
 </style>
 </head>
 <body>
 <header>
+<h1>Ce trebuie să faci dacă vezi un motociclist accidentat - Salvează o viață</h1>
+</header>
+<section>
 <div class="theme-switch">
 <label for="themeToggle">Schimbă tema</label>
 <label class="switch">
@@ -175,9 +167,6 @@ padding: 0 10px;
 <span class="slider"></span>
 </label>
 </div>
-<h1>Ce trebuie să faci dacă vezi un motociclist accidentat - Salvează o viață</h1>
-</header>
-<section>
 <h2>Informații esențiale:</h2>
 <ul>
 <li><strong>NU scoate casca motociclistului!</strong></li>
@@ -200,7 +189,7 @@ padding: 0 10px;
 <li>Dacă ai posibilitatea, semnalizează locul accidentului cu triunghiuri sau alte mijloace vizibile.</li>
 </ul>
 <h2>Important:</h2>
-<p>Chiar dacă intențiile sunt bune, intervențiile greșite pot agrava situația. Dacă nu ești sigur, cel mai bine este să aștepți echipajele specializate.</p>
+<p>Chiar dacă intențiile sunt bune, intervențiile greșite pot agrava situația. Dacă nu ești sigur sau nu ai pregătire medicală, cel mai bine este să aștepți echipajele specializate.</p>
 </div>
 </section>
 <footer>
@@ -215,13 +204,19 @@ Sustinut de: <a href="https://www.twitch.tv/anaiadxd" target="_blank">anaiadxd</
 </div>
 </footer>
 <script>
+function toggleTheme() {
+document.body.classList.toggle('dark');
+}
 function toggleDetails() {
 const details = document.getElementById('more-details');
 details.classList.toggle('hidden');
 }
-function toggleTheme() {
-document.body.classList.toggle('dark');
-}
 </script>
 </body>
 </html>
+"""
+
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+html_path
